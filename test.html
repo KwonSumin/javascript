@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>html5 + css3 text</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="modal.js"></script>
+    <script src="form.js"></script>
+    <script src="render.js"></script>
+    <script src="validate.js"></script>
+    <script src="../../js.lib/jsPDF-master/jsPDF-master/dist/jspdf.debug.js"></script>
+    <script src="../../js.lib/jsPDF-master/jsPDF-master/dist/jspdf.min.js"></script>
+<style>
+    
+    
+</style>
+</head>
+<body>  
+    <canvas width="200" height="200" id="canvas1" ></canvas>
+    
+    
+<script>
+    var canvas1 = $('canvas#canvas1')[0];
+    var ctx = canvas1.getContext('2d');
+    var img1 = new Image();
+    var img2 = new Image();
+    img2.src = 'http://cfile22.uf.tistory.com/image/2775A048563AD9A02EDDA6';
+    
+    
+    img1.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR154224UKHSg2SXg3xR3FIbslPKze0pqV15sXPT82AZneI4j7LTA';
+    $(document).ready(function(){
+        ctx.drawImage(img1,0,100,200,100);
+        ctx.drawImage(img2,0,0,200,100);
+        var canvas_img = canvas1.toDataURL();
+        var pdf = new jsPDF();
+        pdf.addImage(canvas_img);
+        pdf.save('sample.pdf');
+    })
+</script>
+</body>
+</html>
